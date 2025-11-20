@@ -1,0 +1,8 @@
+PrintedBook,El Quijote,Cervantes,Ficcion,25.99,863
+AudioBook,1984,Orwell,Ciencia Ficcion,15.5,452
+PrintedBook,Cien años de soledad,Garcia Marquez,Realismo Magico,20.75,417
+AudioBook,El señor de los anillos,Tolkien,Fantasia,30.25,1892
+PrintedBook,Harry Potter,J. K. Rolling,Cience Fiction,60.0,180
+PrintedBook,The Odisea,Hommer,Ficcion,30.0,900
+AudioBook,Hammlet,William Sheakespear,Ficcion,40.0,60
+PrintedBook,Divina Comedia,Dante,Ficcion,30,80
