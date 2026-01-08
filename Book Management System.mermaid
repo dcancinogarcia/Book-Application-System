@@ -1,0 +1,92 @@
+flowchart TD
+    Start([Start Program]) --> MainMenu[Display Main Menu]
+    
+    MainMenu --> InputChoice[User inputs choice<br>1-14]
+    
+    InputChoice --> Choice{Choice Selection}
+    
+    Choice -- 1 --> AddPrintedBook[Add Printed Book]
+    Choice -- 2 --> AddAudioBook[Add Audio Book]
+    Choice -- 3 --> DisplayLastSix[Display Last Six Books]
+    Choice -- 4 --> CountByGenre[Count Books by Genre]
+    Choice -- 5 --> TotalCost[Display Total Cost]
+    Choice -- 6 --> LastThreePrinted[Display Last Three Printed Books]
+    Choice -- 7 --> LastThreeAudio[Display Last Three Audio Books]
+    Choice -- 8 --> AvgPages[Compute Average Pages]
+    Choice -- 9 --> AvgMinutes[Compute Average Length]
+    Choice -- 10 --> SaveToFile[Save Books to File]
+    Choice -- 11 --> LoadFromFile[Load Books from File]
+    Choice -- 12 --> DeleteMenu[Delete Book Submenu]
+    Choice -- 13 --> DisplayAll[Display All Books]
+    Choice -- 14 --> Exit([Exit Program])
+    
+    AddPrintedBook --> Input1[Get book details:<br>title, author, genre, cost, pages]
+    Input1 --> CreatePrinted[Create PrintedBook object]
+    CreatePrinted --> Success1[Print success message]
+    Success1 --> MainMenu
+    
+    AddAudioBook --> Input2[Get book details:<br>title, author, genre, cost, minutes]
+    Input2 --> CreateAudio[Create AudioBook object]
+    CreateAudio --> Success2[Print success message]
+    Success2 --> MainMenu
+    
+    DisplayLastSix --> CheckEmpty3{Are books empty?}
+    CheckEmpty3 -- Yes --> NoBooks3[Print 'No books available']
+    CheckEmpty3 -- No --> ShowLastSix[Display last six books]
+    NoBooks3 --> MainMenu
+    ShowLastSix --> MainMenu
+    
+    CountByGenre --> InputGenre[Get genre input]
+    InputGenre --> CountBooks[Call getNumberofBooksByGenreStatic]
+    CountBooks --> PrintCount[Print result]
+    PrintCount --> MainMenu
+    
+    TotalCost --> CalculateTotal[Call getTotalCostStatic]
+    CalculateTotal --> PrintTotal[Print total cost]
+    PrintTotal --> MainMenu
+    
+    LastThreePrinted --> CallDisplay3Printed[Call displayLastThreePrintedBooks]
+    CallDisplay3Printed --> MainMenu
+    
+    LastThreeAudio --> CallDisplay3Audio[Call displayLastThreeAudioBooks]
+    CallDisplay3Audio --> MainMenu
+    
+    AvgPages --> CalculateAvgPages[Call computeAveragePages]
+    CalculateAvgPages --> PrintAvgPages[Print average]
+    PrintAvgPages --> MainMenu
+    
+    AvgMinutes --> CalculateAvgMinutes[Call computeAverageLength]
+    CalculateAvgMinutes --> PrintAvgMinutes[Print average]
+    PrintAvgMinutes --> MainMenu
+    
+    SaveToFile --> GetFilePath1[Get file path]
+    GetFilePath1 --> WriteFile[Call writeToFile]
+    WriteFile --> MainMenu
+    
+    LoadFromFile --> GetFilePath2[Get file path]
+    GetFilePath2 --> ReadFile[Call readFromFile]
+    ReadFile --> MainMenu
+    
+    DeleteMenu --> DeleteChoice{Delete method?}
+    DeleteChoice -- 1 --> DeleteByIndex
+    DeleteChoice -- 2 --> DeleteByTitle
+    
+    DeleteByIndex --> ShowAllBooks[Display all books with indices]
+    ShowAllBooks --> InputIndex[Get index to delete]
+    InputIndex --> RemoveByIndex[Call removeBook]
+    RemoveByIndex --> CheckSuccess1{Success?}
+    CheckSuccess1 -- Yes --> SuccessDelete1[Print success]
+    CheckSuccess1 -- No --> FailDelete1[Print failure]
+    SuccessDelete1 --> MainMenu
+    FailDelete1 --> MainMenu
+    
+    DeleteByTitle --> InputTitle[Get title to delete]
+    InputTitle --> RemoveByTitle[Call removeBookByTitle]
+    RemoveByTitle --> CheckSuccess2{Success?}
+    CheckSuccess2 -- Yes --> SuccessDelete2[Print success]
+    CheckSuccess2 -- No --> FailDelete2[Print failure]
+    SuccessDelete2 --> MainMenu
+    FailDelete2 --> MainMenu
+    
+    DisplayAll --> CallDisplayAll[Call displayAllBooks]
+    CallDisplayAll --> MainMenu
