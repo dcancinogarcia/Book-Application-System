@@ -168,3 +168,9 @@ Input is read through Scanner; numeric fields are parsed with validation for fil
 5. **Display** / Reports — iterate over the shared or type-specific lists and print the requested information.
 6. **Save** / Load — serialize each book via toFileString() and reconstruct via readFromFile().
 7. **Exit** — option 14 closes the loop and ends the program.
+
+---
+
+## Security Notes
+
+This tool is intended for local use and educational purposes. It does not include user authentication or encryption for saved files — avoid storing sensitive data.
